@@ -10,16 +10,19 @@ class Login extends CI_Controller {
 
 		if($usuario) {
 			$this->session->set_userdata("usuario_logado", $usuario);
-			$dados = array("mensagem" => "Logado com sucesso!");
+			$this->session->set_flashdata('success', 'Logado com sucesso!');
 		} else {
-			$dados = array("mensagem" => "Usuário ou senha inválidos!");
+			$this->session->set_flashdata('danger', 'Usuário ou senha inválidos!');
 		}
 
-		$this->load->view("login/autenticar", $dados);
+		//$this->load->view("login/autenticar", $dados);
+		redirect('/');
 	}
 
 	public function logout() {
 		$this->session->unset_userdata("usuario_logado");
-		$this->load->view("login/logout");
+		
+		$this->session->set_flashdata('success', 'Deslogado com sucesso');
+		redirect('/');
 	}
 }
