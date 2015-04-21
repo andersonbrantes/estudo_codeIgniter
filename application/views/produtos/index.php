@@ -19,7 +19,11 @@
 				<?php endforeach ?>
 			</table>
 			
-			<?php if(!$this->session->userdata("usuario_logado")) : ?>
+			<?php if($this->session->userdata("usuario_logado")) : ?>
+
+				<?= anchor('login/logout', 'Logout', array('class' => 'btn btn-primary')); ?>
+
+			<?php else : ?>
 
 				<h1>Login</h1>
 

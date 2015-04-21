@@ -17,4 +17,9 @@ class Login extends CI_Controller {
 
 		$this->load->view("login/autenticar", $dados);
 	}
+
+	public function logout() {
+		$this->session->unset_userdata("usuario_logado");
+		$this->load->view("login/logout");
+	}
 }
