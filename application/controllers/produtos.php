@@ -12,10 +12,14 @@ class Produtos extends CI_Controller{
 
 		$dados = array("produtos" => $produtos);
 
-		$this->load->helper(array("currency", "form") );
+		$this->load->helper(array("currency") );
 
 		$this->load->view("produtos/index.php", $dados);
 		
+	}
+
+	public function formulario() {
+		$this->load->view("produtos/formulario");
 	}
 
 }

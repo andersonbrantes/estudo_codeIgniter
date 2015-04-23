@@ -25,6 +25,7 @@
 			
 			<?php if($this->session->userdata("usuario_logado")) : ?>
 
+				<?= anchor('produtos/formulario', 'Novo produto', array("class" => "btn btn-primary") ); ?>
 				<?= anchor('login/logout', 'Logout', array('class' => 'btn btn-primary')); ?>
 
 			<?php else : ?>
