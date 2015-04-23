@@ -22,4 +22,23 @@ class Produtos extends CI_Controller{
 		$this->load->view("produtos/formulario");
 	}
 
+	public function novo() {
+
+		$usuarioLogado = $this->session->userdata('usuario_logado');
+
+		$produto = array(
+			"nome" => $this->input->post("nome"),
+			"descricao" => $this->input->post("descricao"),
+			"preco" => $this->input->post("preco"),
+			"usuario_id" => $usuarioLogado["id"]
+		);
+
+		$this->load->model("produtos_model");
+		$this->produtos_model->salva($produto);
+
+		$this->session->set_flashdata("success", "Produto salvo com sucesso!");
+
+		redirect('/');
+	}
+
 }
