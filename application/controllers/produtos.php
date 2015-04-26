@@ -23,22 +23,34 @@ class Produtos extends CI_Controller{
 	}
 
 	public function novo() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules("nome", "nome", "required");
+		$this->form_validation->set_rules("preco", "preco", "required");
+		$this->form_validation->set_rules("descricao", "descricao", "required|min_length[5]");
+		$this->form_validation->set_error_delimiters("<p class='alert alert-danger'>", "</p>");
+		
+		$sucesso = $this->form_validation->run();
 
-		$usuarioLogado = $this->session->userdata('usuario_logado');
+		if($sucesso) {
 
-		$produto = array(
-			"nome" => $this->input->post("nome"),
-			"descricao" => $this->input->post("descricao"),
-			"preco" => $this->input->post("preco"),
-			"usuario_id" => $usuarioLogado["id"]
-		);
+			$usuarioLogado = $this->session->userdata('usuario_logado');
 
-		$this->load->model("produtos_model");
-		$this->produtos_model->salva($produto);
+			$produto = array(
+				"nome" => $this->input->post("nome"),
+				"descricao" => $this->input->post("descricao"),
+				"preco" => $this->input->post("preco"),
+				"usuario_id" => $usuarioLogado["id"]
+			);
 
-		$this->session->set_flashdata("success", "Produto salvo com sucesso!");
+			$this->load->model("produtos_model");
+			$this->produtos_model->salva($produto);
 
-		redirect('/');
+			$this->session->set_flashdata("success", "Produto salvo com sucesso!");
+
+			redirect('/');
+		} else {
+			$this->load->view('produtos/formulario');
+		}
 	}
 
 	public function mostra($id) {
