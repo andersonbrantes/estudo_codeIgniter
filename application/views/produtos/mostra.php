@@ -10,7 +10,7 @@
 	<div class="container">
 		<h1><?= $produto["nome"] ?></h1>
 		<?= $produto["preco"] ?><br />
-		<?= auto_typography($produto["descricao"]) ?>
+		<?= auto_typography(html_escape($produto["descricao"])) ?>
 	</div>
 
 </body>

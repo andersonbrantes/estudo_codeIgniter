@@ -41,9 +41,8 @@ class Produtos extends CI_Controller{
 		redirect('/');
 	}
 
-	public function mostra() {
+	public function mostra($id) {
 
-		$id = $this->input->get("id");
 		$this->load->model("produtos_model");
 		$produto = $this->produtos_model->busca($id);
 		$this->load->helper("typography");
