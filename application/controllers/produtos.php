@@ -24,9 +24,9 @@ class Produtos extends CI_Controller{
 
 	public function novo() {
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules("nome", "nome", "required");
+		$this->form_validation->set_rules("nome", "nome", "required|callback_nao_tenha_a_palavra_melhor");
 		$this->form_validation->set_rules("preco", "preco", "required");
-		$this->form_validation->set_rules("descricao", "descricao", "required|min_length[5]");
+		$this->form_validation->set_rules("descricao", "descricao", "trim|required|min_length[5]");
 		$this->form_validation->set_error_delimiters("<p class='alert alert-danger'>", "</p>");
 		
 		$sucesso = $this->form_validation->run();
@@ -61,6 +61,18 @@ class Produtos extends CI_Controller{
 
 		$dados = array("produto" => $produto);
 		$this->load->view("produtos/mostra", $dados);
+	}
+
+	public function nao_tenha_a_palavra_melhor($nome) {
+
+		$posicao = strpos($nome, "melhor");
+
+		if($posicao != FALSE) {
+			return TRUE;
+		} else {
+			$this->form_validation->set_message("nao_tenha_a_palavra_melhor", "O campo '%s' nao pode conter a palavra 'melhor'");
+			return FALSE;
+		}
 	}
 
 }
