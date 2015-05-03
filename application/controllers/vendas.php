@@ -6,7 +6,6 @@ class Vendas extends CI_Controller {
 
 		$usuario = $this->session->userdata("usuario_logado");
 
-		$this->load->helper("date");
 		$this->load->model("vendas_model");
 		$vendas = array(
 			"produto_id" => $this->input->post("produto_id"),
