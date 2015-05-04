@@ -4,7 +4,7 @@ class Vendas extends CI_Controller {
 
 	public function nova() {
 
-		$usuario = $this->session->userdata("usuario_logado");
+		$usuario = autoriza();
 
 		$this->load->model("vendas_model");
 		$vendas = array(
