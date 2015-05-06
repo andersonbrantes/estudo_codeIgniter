@@ -13,8 +13,9 @@ class Produtos extends CI_Controller{
 		$dados = array("produtos" => $produtos);
 
 		$this->load->helper(array("currency") );
-
+		$this->load->view("cabecalho.php");
 		$this->load->view("produtos/index.php", $dados);
+		$this->load->view("rodape.php");
 		
 	}
 
