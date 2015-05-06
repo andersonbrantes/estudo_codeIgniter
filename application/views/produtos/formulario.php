@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="<?= base_url("css/bootstrap.css"); ?>">
-	<title>Document</title>
-</head>
-<body>
-	
-	<div class="container">
+
 
 		<h1>Cadastro para novo produto</h1>
 
@@ -30,6 +21,3 @@
 			<?= form_button(array("class" => "btn btn-primary", "type" => "submit", "content" => "Cadastrar")); ?>
 
 		<?= form_close(); ?>
-	</div>
-</body>
-</html>

@@ -22,7 +22,10 @@ class Produtos extends CI_Controller{
 	public function formulario() {
 
 		autoriza();
+
+		$this->load->view("cabecalho.php");
 		$this->load->view("produtos/formulario");
+		$this->load->view("rodape.php");
 	}
 
 	public function novo() {
@@ -63,7 +66,10 @@ class Produtos extends CI_Controller{
 		$this->load->helper("typography");
 
 		$dados = array("produto" => $produto);
+
+		$this->load->view("cabecalho.php");
 		$this->load->view("produtos/mostra", $dados);
+		$this->load->view("rodape.php");
 	}
 
 	public function nao_tenha_a_palavra_melhor($nome) {

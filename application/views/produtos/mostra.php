@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="<?= base_url("css/bootstrap.css"); ?>">
-	<title>Document</title>
-</head>
-<body>
 
-	<div class="container">
 		<h1><?= $produto["nome"] ?></h1>
 		<?= $produto["preco"] ?><br />
 		<?= auto_typography(html_escape($produto["descricao"])) ?>
@@ -23,7 +14,3 @@
 
 			<?= form_button(array("class" => "btn btn-primary", "content" => "comprar", "type" => "submit")); ?>
 		<?= form_close(); ?>
-	</div>
-
-</body>
-</html>
