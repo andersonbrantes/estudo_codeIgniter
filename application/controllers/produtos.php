@@ -13,9 +13,7 @@ class Produtos extends CI_Controller{
 		$dados = array("produtos" => $produtos);
 
 		$this->load->helper(array("currency") );
-		$this->load->view("cabecalho.php");
-		$this->load->view("produtos/index.php", $dados);
-		$this->load->view("rodape.php");
+		$this->load->template("produtos/index.php", $dados);
 		
 	}
 
@@ -23,9 +21,7 @@ class Produtos extends CI_Controller{
 
 		autoriza();
 
-		$this->load->view("cabecalho.php");
-		$this->load->view("produtos/formulario");
-		$this->load->view("rodape.php");
+		$this->load->template("produtos/formulario");
 	}
 
 	public function novo() {
@@ -55,7 +51,7 @@ class Produtos extends CI_Controller{
 
 			redirect('/');
 		} else {
-			$this->load->view('produtos/formulario');
+			$this->load->template('produtos/formulario');
 		}
 	}
 
@@ -67,9 +63,7 @@ class Produtos extends CI_Controller{
 
 		$dados = array("produto" => $produto);
 
-		$this->load->view("cabecalho.php");
-		$this->load->view("produtos/mostra", $dados);
-		$this->load->view("rodape.php");
+		$this->load->template("produtos/mostra", $dados);
 	}
 
 	public function nao_tenha_a_palavra_melhor($nome) {

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="<?= base_url("css/bootstrap.css"); ?>">
-	<title>Document</title>
-</head>
-<body>
-	
-	<div class="container">
 
-			<h1>Produtos</h1>
+
+			<h1>Minhas vendas</h1>
 			<table class="table">
 				<?php foreach($produtosVendidos as $produto) : ?>
 					<tr>
@@ -18,6 +9,3 @@
 					</tr>
 				<?php endforeach ?>
 			</table>
-	</div>
-</body>
-</html>
